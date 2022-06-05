@@ -10,3 +10,21 @@ function computerPlay(){
     //Return computerPick
     return computerPick;
 }
+//Create a function playerPlay that returns the player's pick
+//Declare the function playerPlay
+function playerPlay(){
+    //Create a variable playerPick that prompts the user for his choice
+    let playerPick = prompt("What's your choice ? rock, paper or scissors ?");
+    //if the playerPick is either 'rock' 'paper' or 'scissors' then return it
+    switch(playerPick.toLowerCase()){
+        case 'rock':
+        case 'paper':
+        case 'scissors':  
+            return playerPick;
+            break;  
+        //else ask the user for his choice again
+        default:
+            return playerPlay();    
+    }
+    
+}
