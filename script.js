@@ -28,3 +28,52 @@ function playerPlay(){
     }
     
 }
+//Create a function playRound that has 2 parameters playerSelection, computerSelection which returns the winner of the round
+//Declare the function playRound
+function playRound(playerSelection, computerSelection) {
+    //If the playerSelection is rock
+    if(playerSelection.toLowerCase()==='rock'){
+        //If the computerSelection is paper return "You Lose! Paper beats Rock"
+        if(computerSelection.toLowerCase()==='paper'){
+            return "You Lose! Paper beats Rock";
+        }
+        //Else if the computerSelection is scissors return "You Win! Rock beats Scissors"
+        else if(computerSelection.toLowerCase()==='scissors'){
+            return "You Win! Rock beats Scissors";
+        }
+        //Else if the computerSelection is rock return "Draw!"
+        else if(computerSelection.toLowerCase()==='rock'){
+            return 'Draw!';
+        }
+    }
+    //Else if the playerSelection is paper
+    else if(playerSelection.toLowerCase()==='paper'){
+        //If the computerSelection is scissors return "You Lose! Scissors beats Paper"
+        if(computerSelection.toLowerCase()==='scissors'){
+            return "You Lose! Scissors beats Paper";
+        }
+        //Else if the computerSelection is rock return "You Win! Paper beats Rock"
+        else if(computerSelection.toLowerCase()==='rock'){
+            return "You Win! Paper beats Rock";
+        }
+        //Else if the computerSelection is paper return "Draw!"
+        else if(computerSelection.toLowerCase()==='paper'){
+            return 'Draw!';
+        }
+    }
+    //Else if the playerSelection is scissors
+    else if(playerSelection.toLowerCase()==='scissors'){
+        //If the computerSelection is rock return "You Lose! Rock beats Scissors"
+        if(computerSelection.toLowerCase()==='rock'){
+            return "You Lose! Rock beats Scissors";
+        }
+        //Else if the computerSelection is paper return "You Win! Scissors beats Paper"
+        else if(computerSelection.toLowerCase()==='paper'){
+            return "You Win! Scissors beats Paper";
+        }
+        //Else if the computerSelection is scissors return "Draw!"
+        else if(computerSelection.toLowerCase()==='scissors'){
+            return 'Draw!';
+        } 
+    }      
+  }
