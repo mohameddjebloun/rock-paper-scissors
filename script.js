@@ -33,47 +33,91 @@ function playerPlay(){
 function playRound(playerSelection, computerSelection) {
     //If the playerSelection is rock
     if(playerSelection.toLowerCase()==='rock'){
-        //If the computerSelection is paper return "You Lose! Paper beats Rock"
+        //If the computerSelection is paper set the winner to computer and return "You Lose! Paper beats Rock"
         if(computerSelection.toLowerCase()==='paper'){
+            winner = 'computer';
             return "You Lose! Paper beats Rock";
         }
-        //Else if the computerSelection is scissors return "You Win! Rock beats Scissors"
+        //Else if the computerSelection is scissors set the winner to player and return "You Win! Rock beats Scissors"
         else if(computerSelection.toLowerCase()==='scissors'){
+            winner = 'player';
             return "You Win! Rock beats Scissors";
         }
-        //Else if the computerSelection is rock return "Draw!"
+        //Else if the computerSelection is rock set the winner to none and return "Draw!"
         else if(computerSelection.toLowerCase()==='rock'){
+            winner = 'none';
             return 'Draw!';
         }
     }
     //Else if the playerSelection is paper
     else if(playerSelection.toLowerCase()==='paper'){
-        //If the computerSelection is scissors return "You Lose! Scissors beats Paper"
+        //If the computerSelection is scissors set the winner to computer and return "You Lose! Scissors beats Paper"
         if(computerSelection.toLowerCase()==='scissors'){
+            winner = 'computer';
             return "You Lose! Scissors beats Paper";
         }
-        //Else if the computerSelection is rock return "You Win! Paper beats Rock"
+        //Else if the computerSelection is rock set the winner to player and return "You Win! Paper beats Rock"
         else if(computerSelection.toLowerCase()==='rock'){
+            winner = 'player';
             return "You Win! Paper beats Rock";
         }
-        //Else if the computerSelection is paper return "Draw!"
+        //Else if the computerSelection is paper set the winner to none and return "Draw!"
         else if(computerSelection.toLowerCase()==='paper'){
+            winner = 'none';
             return 'Draw!';
         }
     }
     //Else if the playerSelection is scissors
     else if(playerSelection.toLowerCase()==='scissors'){
-        //If the computerSelection is rock return "You Lose! Rock beats Scissors"
+        //If the computerSelection is rock set the winner to computer and return "You Lose! Rock beats Scissors"
         if(computerSelection.toLowerCase()==='rock'){
+            winner = 'computer';
             return "You Lose! Rock beats Scissors";
         }
-        //Else if the computerSelection is paper return "You Win! Scissors beats Paper"
+        //Else if the computerSelection is paper set the winner to player and return "You Win! Scissors beats Paper"
         else if(computerSelection.toLowerCase()==='paper'){
+            winner = 'player';
             return "You Win! Scissors beats Paper";
         }
-        //Else if the computerSelection is scissors return "Draw!"
+        //Else if the computerSelection is scissors set the winner to none return "Draw!"
         else if(computerSelection.toLowerCase()==='scissors'){
+            winner = 'none';
             return 'Draw!';
         } 
     }      
   }
+//Create a function game that calls playRound 5 times and return the winner at the end
+//Declare the function game
+function game(){
+    //Create the variables computerScore and playerScore and initialize them with 0
+    let computerScore = 0;
+    let playerScore = 0;
+    //Create a for loop that calls playRound 5 times
+    for (let i = 0; i < 5; i++){
+        //Call playRound
+        console.log(playRound(playerPlay(),computerPlay()));
+        //If the winner is the player increment playerScore by 1
+        if(winner === 'player'){
+            playerScore +=1;
+        }
+        //Else if the winner is the computer increment computerScore by 1
+        else if(winner === 'computer'){
+            computerScore += 1;
+        }
+
+    }
+    //If playerScore is greater than computerScore return `You win {playerScore} to {computerScore}`
+    if(playerScore > computerScore){
+        return `You win ${playerScore} to ${computerScore}`;
+    }
+    //Else if computerScore is greater than playerScore return `You lose {computerScore} to {playerScore}`
+    else if(computerScore > playerScore){
+        return `You lose ${computerScore} to ${playerScore}`;
+    }
+    //Else return `You drew {playerScore} - {computerScore}`
+    else{
+        return `You drew ${playerScore} - ${computerScore}`;
+    }
+}
+//Create a global variable winner
+let winner;
