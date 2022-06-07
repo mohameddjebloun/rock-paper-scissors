@@ -86,14 +86,14 @@ function playRound(playerSelection, computerSelection) {
         } 
     }      
   }
-//Create a function game that calls playRound 5 times and return the winner at the end
+//Create a function game that calls playRound until the player or computer wins 5 times and return the winner at the end
 //Declare the function game
 function game(){
     //Create the variables computerScore and playerScore and initialize them with 0
     let computerScore = 0;
     let playerScore = 0;
-    //Create a for loop that calls playRound 5 times
-    for (let i = 0; i < 5; i++){
+    //Create a while loop that keeps going until computerScore or playerScore reaches 5
+    while(computerScore<5 && playerScore <5){
         //Call playRound
         console.log(playRound(playerPlay(),computerPlay()));
         //If the winner is the player increment playerScore by 1
@@ -113,10 +113,6 @@ function game(){
     //Else if computerScore is greater than playerScore return `You lose {computerScore} to {playerScore}`
     else if(computerScore > playerScore){
         return `You lose ${computerScore} to ${playerScore}`;
-    }
-    //Else return `You drew {playerScore} - {computerScore}`
-    else{
-        return `You drew ${playerScore} - ${computerScore}`;
     }
 }
 //Create a global variable winner
