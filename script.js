@@ -94,32 +94,36 @@ buttons.forEach((button)=>{
         //Display the roundResult
         roundResult.innerText = playRound(button.value,computerPlay());
         //if computer score is 5
-        if(computerScore.textContent === '5'){
+        if((computerScore.textContent === '4') && (winner === 'computer')){
+            //Set computerScore text content to 5
+            computerScore.textContent = '5';
             //Disable buttons
             buttons.forEach((button => button.disabled = true));
             //Give gameWinner the text content 'You lose! Good luck next time'
             gameWinner.textContent = 'You lose! Good luck next time';
-            //Set computerScore and playerScore to 0 and enable the buttons after 1 second
+            //Set computerScore and playerScore to 0 and enable the buttons after 3 seconds
             setTimeout(() => {
                 computerScore.textContent = '0';
                 playerScore.textContent = '0';
                 gameWinner.textContent = '';
                 buttons.forEach((button => button.disabled = false));
-              }, "1000")
+              }, "3000")
         }  
         //else if player score is 5 
-        else if(playerScore.textContent === '5'){
+        else if((playerScore.textContent === '4') &&(winner === 'player')){
+            //Set playerScore text content to 5
+            playerScore.textContent = '5';
             //Disable buttons
             buttons.forEach((button => button.disabled = true));
             //Give gameWinner the text content 'You win!'
             gameWinner.textContent = 'You win!';
-            //Set computerScore and playerScore to 0 and enable the buttons after 1 second
+            //Set computerScore and playerScore to 0 and enable the buttons after 3 seconds
             setTimeout(() => {
                 computerScore.textContent = '0';
                 playerScore.textContent = '0';
                 gameWinner.textContent = '';
                 buttons.forEach((button => button.disabled = false));
-              }, "1000")
+              }, "3000")
             
         }
         //else if winner is computer
