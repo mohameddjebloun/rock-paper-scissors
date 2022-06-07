@@ -68,35 +68,6 @@ function playRound(playerSelection, computerSelection) {
         } 
     }      
   }
-//Create a function game that calls playRound until the player or computer wins 5 times and return the winner at the end
-//Declare the function game
-function game(){
-    //Create the variables computerScore and playerScore and initialize them with 0
-    let computerScore = 0;
-    let playerScore = 0;
-    //Create a while loop that keeps going until computerScore or playerScore reaches 5
-    while(computerScore<5 && playerScore <5){
-        //Call playRound
-        console.log(playRound(playerPlay(),computerPlay()));
-        //If the winner is the player increment playerScore by 1
-        if(winner === 'player'){
-            playerScore +=1;
-        }
-        //Else if the winner is the computer increment computerScore by 1
-        else if(winner === 'computer'){
-            computerScore += 1;
-        }
-
-    }
-    //If playerScore is greater than computerScore return `You win {playerScore} to {computerScore}`
-    if(playerScore > computerScore){
-        return `You win ${playerScore} to ${computerScore}`;
-    }
-    //Else if computerScore is greater than playerScore return `You lose {computerScore} to {playerScore}`
-    else if(computerScore > playerScore){
-        return `You lose ${computerScore} to ${playerScore}`;
-    }
-}
 //Create a global variable winner
 let winner;
 //Add an event listener to the buttons that call playRound function with the correct playerSelection every time a button is clicked
