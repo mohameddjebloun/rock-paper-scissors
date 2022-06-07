@@ -102,14 +102,16 @@ let winner;
 //Add an event listener to the buttons that call playRound function with the correct playerSelection every time a button is clicked
 //Create a nodeList of all the buttons
 const buttons = document.querySelectorAll('button');
+//Create a variable of the roundResult div
+const roundResult = document.querySelector(".roundResult p");
 //Iterate through the nodeList
 buttons.forEach((button)=>{
     //For each button add a click event listener that calls the playRound function with playerSelection = button value
     button.addEventListener('click',()=>{
         //Set button value to its text content
         button.value = button.textContent;
-        console.log(button.value);
-        console.log(playRound(button.value,computerPlay()));
+        //Display the roundResult
+        roundResult.innerText = playRound(button.value,computerPlay());
     });
     
 });
