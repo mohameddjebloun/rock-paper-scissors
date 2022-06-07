@@ -104,6 +104,16 @@ let winner;
 const buttons = document.querySelectorAll('button');
 //Create a variable of the roundResult div
 const roundResult = document.querySelector(".roundResult p");
+//Create variables of the computerScore and playerScore paragraphs
+const computerScore = document.querySelector('.computerScore p');
+const playerScore = document.querySelector('.playerScore p');
+//Create a new p element gameWinner
+const gameWinner = document.createElement('p');
+gameWinner.classList.add('playerWin');
+//Create a variable of the scoreboard div
+const scoreboard = document.querySelector(".scoreboard");
+//Make gameWinner a child of scoreboard
+scoreboard.appendChild(gameWinner);
 //Iterate through the nodeList
 buttons.forEach((button)=>{
     //For each button add a click event listener that calls the playRound function with playerSelection = button value
@@ -112,6 +122,47 @@ buttons.forEach((button)=>{
         button.value = button.textContent;
         //Display the roundResult
         roundResult.innerText = playRound(button.value,computerPlay());
+        //if computer score is 5
+        if(computerScore.textContent === '5'){
+            //Disable buttons
+            buttons.forEach((button => button.disabled = true));
+            //Give gameWinner the text content 'You lose! Good luck next time'
+            gameWinner.textContent = 'You lose! Good luck next time';
+            //Set computerScore and playerScore to 0 and enable the buttons after 1 second
+            setTimeout(() => {
+                computerScore.textContent = '0';
+                playerScore.textContent = '0';
+                gameWinner.textContent = '';
+                buttons.forEach((button => button.disabled = false));
+              }, "1000")
+        }  
+        //else if player score is 5 
+        else if(playerScore.textContent === '5'){
+            //Disable buttons
+            buttons.forEach((button => button.disabled = true));
+            //Give gameWinner the text content 'You win!'
+            gameWinner.textContent = 'You win!';
+            //Set computerScore and playerScore to 0 and enable the buttons after 1 second
+            setTimeout(() => {
+                computerScore.textContent = '0';
+                playerScore.textContent = '0';
+                gameWinner.textContent = '';
+                buttons.forEach((button => button.disabled = false));
+              }, "1000")
+            
+        }
+        //else if winner is computer
+        else if(winner === 'computer'){
+            //Increment computerScore by 1
+            computerScore.textContent = (+computerScore.textContent + 1).toString();
+        }
+            
+        //else if winner is player   
+        else if(winner === 'player'){
+            //Increment playerScore by 1
+            playerScore.textContent = (+playerScore.textContent + 1).toString();
+        } 
+            
     });
     
 });
