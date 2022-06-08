@@ -36,3 +36,13 @@ button {
     text-align: center;
     font-size: 36px;
 }
+.scoreboard {
+    display: flex;
+    justify-content: space-around;
+}
+.playerWin {
+    color: green;
+}
+.computerWin{
+    color: red;
+}
