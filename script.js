@@ -80,7 +80,6 @@ const computerScore = document.querySelector('.computerScore p');
 const playerScore = document.querySelector('.playerScore p');
 //Create a new p element gameWinner
 const gameWinner = document.createElement('p');
-gameWinner.classList.add('playerWin');
 //Create a variable of the scoreboard div
 const scoreboard = document.querySelector(".scoreboard");
 //Make gameWinner a child of scoreboard
@@ -101,11 +100,17 @@ buttons.forEach((button)=>{
             buttons.forEach((button => button.disabled = true));
             //Give gameWinner the text content 'You lose! Good luck next time'
             gameWinner.textContent = 'You lose! Good luck next time';
+            //Add class computerWin
+            gameWinner.classList.add('computerWin');
             //Set computerScore and playerScore to 0 and enable the buttons after 3 seconds
             setTimeout(() => {
+                //Empty roundResult
+                roundResult.textContent = '';
+                //Reset scores
                 computerScore.textContent = '0';
                 playerScore.textContent = '0';
                 gameWinner.textContent = '';
+                //Enable buttons
                 buttons.forEach((button => button.disabled = false));
               }, "3000")
         }  
@@ -117,11 +122,17 @@ buttons.forEach((button)=>{
             buttons.forEach((button => button.disabled = true));
             //Give gameWinner the text content 'You win!'
             gameWinner.textContent = 'You win!';
+            //Add class playerWin
+            gameWinner.classList.add('playerWin');
             //Set computerScore and playerScore to 0 and enable the buttons after 3 seconds
             setTimeout(() => {
+                //Empty roundResult
+                roundResult.textContent = '';
+                //Reset scores
                 computerScore.textContent = '0';
                 playerScore.textContent = '0';
                 gameWinner.textContent = '';
+                //Enable buttons
                 buttons.forEach((button => button.disabled = false));
               }, "3000")
             
