@@ -1,0 +1,11 @@
+body {
+    color: #403F37;
+    margin: 0;
+}
+header {
+    background-color: #A6896F;
+    width: 100%;
+    height: 50px;
+    margin-top: -1%;
+    text-align: center;
+}
